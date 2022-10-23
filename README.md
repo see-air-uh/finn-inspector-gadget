@@ -1,4 +1,4 @@
-# asxce-gfrg
+# finn-gfrg
 
 code name Gale-Force Reading Glasses
 
