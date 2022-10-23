@@ -1,5 +1,5 @@
-# finn-gfrg
+# finn-inspector-gadget
 
-code name Gale-Force Reading Glasses
+code name inspector gadget
 
 ### Go Lang Logging Service
