@@ -11,10 +11,9 @@ import (
 	"github.com/see-air-uh/finn-inspector-gadget/data"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-
-	_ "github.com/jackc/pgconn"
-	_ "github.com/jackc/pgx/v4"
-	_ "github.com/jackc/pgx/v4/stdlib"
+	// _ "github.com/jackc/pgconn"
+	// _ "github.com/jackc/pgx/v4"
+	// _ "github.com/jackc/pgx/v4/stdlib"
 )
 
 const (
