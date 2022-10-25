@@ -1,5 +1,4 @@
-# finn-inspector-gadget
+A logger service that uses a Mongodb database.
 
-code name inspector gadgets
-
-### Go Lang Logging Service
+This service will not be exposed and will only be able to be communicated with
+by other micro services.
