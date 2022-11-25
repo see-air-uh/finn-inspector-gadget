@@ -1,0 +1,19 @@
+# docker-compose.yml
+
+services:
+  mongodb_container:
+    image: mongo:4.4.6
+    container_name: mongodb_container
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin12345
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db-data/mongodb/:/data/db
+
+  logger:
+    init: true
+    build: .
+    ports: 
+      - '50001:50001'
