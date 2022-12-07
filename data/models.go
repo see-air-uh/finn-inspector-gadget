@@ -27,7 +27,11 @@ type Models struct {
 
 type LogEntry struct {
 	ID        string    `bson:"_id,omitempty" json:"id,omitempty"`
-	Name      string    `bson:"name" json:"name"`
+	User      string    `bson:"user" json:"user"`
+	Date      time.Time `bson:"timestamp" json:"timestamp"`
+	Module    string    `bson:"module" json:"module"`
+	Event     string    `bson:"event" json:"event"`
+	Action    string    `bson:"action" json:"action"`
 	Data      string    `bson:"data" json:"data"`
 	CreatedAt time.Time `bson:"created_at" json:"created_at"`
 	UpdatedAt time.Time `bson:"updated_at" json:"updated_at"`
@@ -37,7 +41,11 @@ func (l *LogEntry) Insert(entry LogEntry) error {
 	collection := client.Database("logs").Collection("logs")
 
 	_, err := collection.InsertOne(context.TODO(), LogEntry{
-		Name:      entry.Name,
+		User:      entry.User,
+		Date:      entry.Date,
+		Module:    entry.Module,
+		Event:     entry.Event,
+		Action:    entry.Action,
 		Data:      entry.Data,
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),
@@ -136,7 +144,7 @@ func (l *LogEntry) Update() (*mongo.UpdateResult, error) {
 		bson.M{"_id": docID},
 		bson.D{
 			{"$set", bson.D{
-				{"name", l.Name},
+				{"date", l.Date},
 				{"data", l.Data},
 				{"updated_at", time.Now()},
 			}},

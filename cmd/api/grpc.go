@@ -23,8 +23,12 @@ func (l *LogServer) WriteLog(ctx context.Context, req *logs.LogRequest) (*logs.L
 
 	// write the log
 	logEntry := data.LogEntry{
-		Name: input.Name,
-		Data: input.Data,
+		User:   input.User,
+		Date:   input.Date.AsTime(),
+		Module: input.Module,
+		Event:  input.Event,
+		Action: input.Action,
+		Data:   input.Data,
 	}
 
 	err := l.Models.LogEntry.Insert(logEntry)

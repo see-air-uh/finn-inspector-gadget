@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 // what is the package called
 package logs;
 
@@ -8,8 +10,12 @@ option go_package = "/logs";
 
 // define the data passed around
 message Log {
-  string name = 1;
-  string data = 2;
+  string user = 1;
+  google.protobuf.Timestamp date = 2;
+  string module = 3;
+  string event = 4;
+  string action = 5;
+  string data = 6;
 }
 message LogResponse {
   string result = 1;
